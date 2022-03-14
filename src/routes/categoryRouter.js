@@ -16,7 +16,8 @@ router.post(
 // READ
 router.get('/categories', categoryController.getCategories);
 
-router.get('/categories/:id', categoryController.getCategoryById);
+// router.get('/categories/:id', categoryController.getCategoryById);
+router.get('/categories/:slug', categoryController.getCategoryBySlug);
 
 // UPDATE
 router.put(

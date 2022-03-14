@@ -45,6 +45,19 @@ const categoryController = {
       next(error);
     }
   },
+  // [GET] category by slug
+  async getCategoryBySlug(req, res, next) {
+    try {
+      const { slug } = req.params;
+      const category = await categoryModel.findOne({ slug });
+      if (!category) {
+        throw createHttpError(404, `Category has id: ${id} does not exist`);
+      }
+      res.status(200).json({ data: category, message: '' });
+    } catch (error) {
+      next(error);
+    }
+  },
   // [POST] create category
   async createCategory(req, res, next) {
     try {
